@@ -7,26 +7,29 @@ class TestAfficheLigne(unittest.TestCase):
     def test_when_a_return_centered_a(self):
         lettre = 'c'
         lettre_courante = 'a'
+        lettre_remplissage = '-'
         largeur_ligne = indice_lettre(lettre) * 2 - 1
         nb_espaces = indice_lettre(lettre) - 1 - (indice_lettre(lettre) - indice_lettre(lettre_courante))
-        result = affiche_ligne(lettre, nb_espaces, lettre_courante, largeur_ligne)
+        result = affiche_ligne(lettre, nb_espaces, lettre_courante, largeur_ligne, lettre_remplissage)
         self.assertEquals(result, '  a  \n')
 
     def test_when_c_return_c_without_starting_spaces(self):
         lettre = 'c'
         lettre_courante = 'c'
+        lettre_remplissage = '-'
         largeur_ligne = indice_lettre(lettre) * 2 - 1
         nb_espaces = indice_lettre(lettre) - 1 - (indice_lettre(lettre) - indice_lettre(lettre_courante))
-        result = affiche_ligne(lettre, nb_espaces, lettre_courante, largeur_ligne)
-        self.assertEquals(result, 'c   c\n')
+        result = affiche_ligne(lettre, nb_espaces, lettre_courante, largeur_ligne, lettre_remplissage)
+        self.assertEquals(result, 'c---c\n')
 
     def test_when_b_return_b_with_starting_spaces(self):
         lettre = 'c'
         lettre_courante = 'b'
+        lettre_remplissage = '-'
         largeur_ligne = indice_lettre(lettre) * 2 - 1
         nb_espaces = indice_lettre(lettre) - 1 - (indice_lettre(lettre) - indice_lettre(lettre_courante))
-        result = affiche_ligne(lettre, nb_espaces, lettre_courante, largeur_ligne)
-        self.assertEquals(result, ' b b \n')
+        result = affiche_ligne(lettre, nb_espaces, lettre_courante, largeur_ligne, lettre_remplissage)
+        self.assertEquals(result, ' b-b \n')
 
 
 class TestDiamond(unittest.TestCase):
